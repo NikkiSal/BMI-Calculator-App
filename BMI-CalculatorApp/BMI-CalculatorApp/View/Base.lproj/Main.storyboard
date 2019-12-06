@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculate View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMI_CalculatorApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculateViewController" customModule="BMI_CalculatorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,25 +139,26 @@
                         <outlet property="heightSlider" destination="tcw-PA-f06" id="enl-Tw-Beh"/>
                         <outlet property="weightLabel" destination="YLh-5N-DXL" id="Gbf-3X-vNK"/>
                         <outlet property="weightSlider" destination="U3Q-k3-H4F" id="4eu-8x-XR1"/>
+                        <segue destination="BwX-0T-eDJ" kind="presentation" identifier="goToResults" id="Ypw-N2-Gpq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="qQ6-7W-NFh">
             <objects>
-                <viewController id="BwX-0T-eDJ" sceneMemberID="viewController">
+                <viewController id="BwX-0T-eDJ" customClass="ResultViewController" customModule="BMI_CalculatorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2wr-uy-tYo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="wjX-AF-iLb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-Gy-WJM">
-                                <rect key="frame" x="93" y="352" width="228.5" height="192"/>
+                                <rect key="frame" x="93" y="325" width="228.5" height="192"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-8j-LB2">
                                         <rect key="frame" x="0.5" y="0.0" width="227.5" height="55"/>
@@ -180,7 +181,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxJ-pU-YKv">
-                                <rect key="frame" x="20" y="811" width="374" height="51"/>
+                                <rect key="frame" x="20" y="757" width="374" height="51"/>
                                 <color key="backgroundColor" red="0.38358902931213379" green="0.36162391304969788" blue="0.6311764121055603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="7s8-lS-Y5D"/>
@@ -189,6 +190,9 @@
                                 <state key="normal" title="Recalculate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="BwX-0T-eDJ" eventType="touchUpInside" id="B7O-CX-dmz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.38035102739726029" green="0.69782349578767122" blue="0.79192529965753422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,6 +209,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ODG-BX-5Kj"/>
                     </view>
+                    <connections>
+                        <outlet property="adviceLabel" destination="gMj-Ql-YRf" id="1J3-iE-eTz"/>
+                        <outlet property="bmiLabel" destination="F9H-dg-O6i" id="PRM-Wq-6AM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgS-bM-4aZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
