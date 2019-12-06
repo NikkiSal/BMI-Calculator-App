@@ -2,7 +2,7 @@
 //  ResultViewController.swift
 //  BMI-CalculatorApp
 //
-//  Created by Marzieh on 2019-12-05.
+//  Created by Nikkion 2019-12-05.
 //  Copyright © 2019 Myph. All rights reserved.
 //
 
